@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 var fetchuser = require('../middleware/fetchuser');
 
-const JWT_SECRET = 'Vibe$0f3ducat10n';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // ROUTE 1: Create a User using: POST "/api/auth/createuser". No login required
 router.post('/createuser', [
@@ -46,7 +46,7 @@ router.post('/createuser', [
         success = true
 
         // res.json(user)
-        res.json({success, authtoken })
+        res.json({ success, authtoken })
 
     } catch (error) {
         console.error(error.message);
@@ -100,7 +100,7 @@ router.post('/login', [
 
 
 // ROUTE 3: Get loggedin User Details using: POST "/api/auth/getuser". Login required
-router.post('/getuser', fetchuser,  async (req, res) => {
+router.post('/getuser', fetchuser, async (req, res) => {
 
     try {
         userId = req.user.id;
