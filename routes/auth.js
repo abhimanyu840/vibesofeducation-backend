@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 var fetchuser = require('../middleware/fetchuser');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'Vibe$0f3ducat10n';
+const JWT_SECRET = 'Vibe$0f3ducat10n';
 
 // ROUTE 1: Create a User using: POST "/api/auth/createuser". No login required
 router.post('/createuser', [
